@@ -1,0 +1,21 @@
+{
+  "name": "踏马跨年",
+  "symbol": "TMKN",
+  "description": "踏马跨年（TMKN）是一枚为跨年情绪与 Meme 精神而生的 Solana 链代币。踏旧年、迎新年，踏马向前，图个吉利，图个乐。",
+  "image": "https://raw.githubusercontent.com/maodou2111-png/TMKN-TMKN/main/tmkn.png",
+  "external_url": "https://x.com/",
+  "attributes": [
+    {
+      "trait_type": "Theme",
+      "value": "New Year Meme"
+    },
+    {
+      "trait_type": "Chain",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Supply",
+      "value": "Fixed 1,000,000,000"
+    }
+  ]
+}
