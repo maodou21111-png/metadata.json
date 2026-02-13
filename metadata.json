@@ -1,21 +1,48 @@
 {
-  "name": "踏马跨年",
-  "symbol": "TMKN",
-  "description": "踏马跨年（TMKN）是一枚为跨年情绪与 Meme 精神而生的 Solana 链代币。踏旧年、迎新年，踏马向前，图个吉利，图个乐。",
-  "image": "https://raw.githubusercontent.com/maodou2111-png/TMKN-TMKN/main/tmkn.png",
-  "external_url": "https://x.com/",
-  "attributes": [
-    {
-      "trait_type": "Theme",
-      "value": "New Year Meme"
+  "project_name": "10号球员踢球赢奖励",
+  "version": "1.0.0",
+  "description": "用户注册账号后，使用10号球员进行跑动踢球。点击人物可控力度：长按增加力度，轻触减少力度。足球按随机线路飞行，撞击球门内足球后获得对应奖励。",
+  "gameplay": {
+    "player": {
+      "jersey_number": 10,
+      "controls": {
+        "long_press": "增加射门力度",
+        "tap": "减少射门力度"
+      },
+      "action_flow": [
+        "跑动",
+        "起脚踢球",
+        "足球随机线路飞行",
+        "撞击球门内足球",
+        "结算奖励"
+      ]
     },
-    {
-      "trait_type": "Chain",
-      "value": "Solana"
-    },
-    {
-      "trait_type": "Supply",
-      "value": "Fixed 1,000,000,000"
+    "goal": {
+      "contains_reward_balls": true,
+      "reward_ball_distribution": {
+        "5000": 8,
+        "10000": 3,
+        "50000": 2,
+        "100000": 1
+      },
+      "reward_trigger_rule": "只要玩家足球随机线路撞击到球门中的任意足球，即获得该足球内奖励金额"
     }
+  },
+  "user_system": {
+    "registration_required": true,
+    "unique_verification_code": {
+      "generated_on_signup": true,
+      "unique_per_user": true
+    },
+    "backend_records": {
+      "track_rewards": true,
+      "track_attempts": true,
+      "attempt_quota_source": "后台通过验证码配置用户可参与踢球次数"
+    }
+  },
+  "notes": [
+    "奖励球总数为14个",
+    "奖励内容与数量可由后台配置扩展",
+    "可在后端增加风控与防刷逻辑"
   ]
 }
