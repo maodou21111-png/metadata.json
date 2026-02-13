@@ -36,8 +36,5 @@
     "record_reward_history": true,
     "record_play_count": true,
     "play_count_source": "后台根据验证码配置可参与踢球次数"
-  },
-  "legacy_cleanup": {
-    "removed_previous_tmkn_content": true
   }
 }
