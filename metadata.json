@@ -1,48 +1,43 @@
 {
-  "project_name": "10号球员踢球赢奖励",
-  "version": "1.0.0",
-  "description": "用户注册账号后，使用10号球员进行跑动踢球。点击人物可控力度：长按增加力度，轻触减少力度。足球按随机线路飞行，撞击球门内足球后获得对应奖励。",
-  "gameplay": {
-    "player": {
-      "jersey_number": 10,
-      "controls": {
-        "long_press": "增加射门力度",
-        "tap": "减少射门力度"
-      },
-      "action_flow": [
-        "跑动",
-        "起脚踢球",
-        "足球随机线路飞行",
-        "撞击球门内足球",
-        "结算奖励"
-      ]
+  "game_name": "10号球员踢球赢奖励",
+  "game_type": "soccer_reward",
+  "player": {
+    "jersey_number": 10,
+    "control_rules": {
+      "long_press": "增加力度",
+      "tap": "减少力度"
     },
-    "goal": {
-      "contains_reward_balls": true,
-      "reward_ball_distribution": {
-        "5000": 8,
-        "10000": 3,
-        "50000": 2,
-        "100000": 1
-      },
-      "reward_trigger_rule": "只要玩家足球随机线路撞击到球门中的任意足球，即获得该足球内奖励金额"
-    }
+    "flow": [
+      "人物跑动",
+      "起脚踢球",
+      "足球随机线路飞行",
+      "撞击球门内足球",
+      "获得对应奖励"
+    ]
   },
-  "user_system": {
-    "registration_required": true,
-    "unique_verification_code": {
-      "generated_on_signup": true,
+  "goal_reward_balls": {
+    "total": 14,
+    "distribution": {
+      "5000": 8,
+      "10000": 3,
+      "50000": 2,
+      "100000": 1
+    },
+    "rule": "玩家踢出的足球随机线路撞击球门内足球，即获得该足球中的奖励金额"
+  },
+  "account": {
+    "register_required": true,
+    "verification_code": {
+      "generate_on_register": true,
       "unique_per_user": true
-    },
-    "backend_records": {
-      "track_rewards": true,
-      "track_attempts": true,
-      "attempt_quota_source": "后台通过验证码配置用户可参与踢球次数"
     }
   },
-  "notes": [
-    "奖励球总数为14个",
-    "奖励内容与数量可由后台配置扩展",
-    "可在后端增加风控与防刷逻辑"
-  ]
+  "backend": {
+    "record_reward_history": true,
+    "record_play_count": true,
+    "play_count_source": "后台根据验证码配置可参与踢球次数"
+  },
+  "legacy_cleanup": {
+    "removed_previous_tmkn_content": true
+  }
 }
