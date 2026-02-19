@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10号球员射门奖励游戏</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="panel">
+      <h1>⚽ 10号球员射门奖励</h1>
+      <p>轻触球员：降低力度；长按球员：增加力度。跑动后射门，命中球门内奖励球即可得分。</p>
+
+      <div class="form-row">
+        <input id="nameInput" placeholder="输入昵称注册" />
+        <button id="registerBtn">注册</button>
+      </div>
+
+      <div class="form-row">
+        <input id="codeInput" placeholder="输入验证码" />
+        <button id="loadBtn">加载用户</button>
+      </div>
+
+      <div class="form-row admin">
+        <input id="attemptsInput" type="number" min="1" placeholder="后台添加次数" />
+        <button id="addAttemptsBtn">添加次数</button>
+      </div>
+
+      <div id="userInfo" class="user-info">未登录</div>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section class="field" id="field">
+      <div class="goal">
+        <div class="goal-grid" id="goalGrid"></div>
+      </div>
+      <button id="player" class="player">10</button>
+      <div id="ball" class="ball hidden">⚽</div>
+    </section>
+
+    <section class="panel">
+      <h2>最近10次记录</h2>
+      <ul id="records"></ul>
+      <h3>奖励池</h3>
+      <ul>
+        <li>5000 × 8</li>
+        <li>10000 × 3</li>
+        <li>50000 × 2</li>
+        <li>100000 × 1</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
