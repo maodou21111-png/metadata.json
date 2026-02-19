@@ -1,1 +1,69 @@
-
+{
+  "project_name": "射门领奖励小游戏",
+  "version": "1.0.0",
+  "language": "zh-CN",
+  "overview": "玩家操作身穿10号球衣的人物完成跑动射门，通过足球随机轨迹碰撞球门内奖励球来获取对应奖金。",
+  "gameplay": {
+    "scene": {
+      "player": "身穿10号球衣人物",
+      "objective": "面对球门跑动并踢球",
+      "goal_area": "球门框内放置多个奖励足球"
+    },
+    "controls": {
+      "tap_player": "轻触人物，降低本次射门力度",
+      "long_press_player": "长按人物，增加本次射门力度",
+      "shooting": "人物跑动后执行踢球动作"
+    },
+    "ball_physics": {
+      "trajectory": "射出的足球按随机线路飞行",
+      "reward_trigger": "当射出足球撞击球门内任意奖励足球时，获得该奖励足球对应的数字奖励"
+    }
+  },
+  "reward_pool": {
+    "currency_unit": "积分或金额（由运营配置）",
+    "balls_total": 14,
+    "distribution": [
+      {
+        "count": 8,
+        "reward": 5000
+      },
+      {
+        "count": 3,
+        "reward": 10000
+      },
+      {
+        "count": 2,
+        "reward": 50000
+      },
+      {
+        "count": 1,
+        "reward": 100000
+      }
+    ],
+    "selection_rule": "奖励足球在球门内随机排布，被撞击即结算该球奖励"
+  },
+  "account_system": {
+    "registration_required": true,
+    "verification_code": {
+      "unique_per_user": true,
+      "generated_by": "系统注册后自动生成",
+      "usage": "用于识别用户与发放可参与次数"
+    }
+  },
+  "backend_requirements": {
+    "reward_logging": "后台记录用户每次踢球获得的奖励明细与累计值",
+    "attempt_management": "用户可参与踢球次数由后台按验证码维度配置和追加",
+    "core_entities": [
+      "User",
+      "VerificationCode",
+      "PlayAttempt",
+      "ShotRecord",
+      "RewardRecord"
+    ]
+  },
+  "basic_rules": {
+    "eligibility": "用户完成注册并拥有可用次数后才能开始踢球",
+    "consumption": "每次发起有效射门消耗1次机会",
+    "settlement": "单次射门命中哪个奖励足球，即结算对应档位奖励"
+  }
+}
